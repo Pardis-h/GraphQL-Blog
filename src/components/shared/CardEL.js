@@ -15,7 +15,8 @@ import { Link } from "react-router-dom";
 function CardEL({ title, slug, coverPhoto, author }) {
   return (
     <Card sx={{borderRadius:4, boxShadow:"0 4px 12px rgba(0,0,0,0.1)"}}>
-      <CardHeader
+      {
+        author &&       <CardHeader
         avatar={<Avatar src={author.avatar.url} sx={{ marginLeft: 2 }} />}
         title={
           <Typography component="p" variant="p" color="text.primary">
@@ -23,6 +24,8 @@ function CardEL({ title, slug, coverPhoto, author }) {
           </Typography>
         }
       />
+      }
+
       <CardMedia component="img" image={coverPhoto.url} alt={slug} />
       <CardContent>
         <Typography
