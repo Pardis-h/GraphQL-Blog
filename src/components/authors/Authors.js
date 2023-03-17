@@ -2,6 +2,7 @@ import React from "react";
 import { Avatar, Divider, Grid, Typography } from "@mui/material";
 import { useQuery } from "@apollo/client";
 import { GET_AUTHORS_INFO } from "../../graphql/queries";
+import { Link } from "react-router-dom";
 
 function Authors() {
   const { loading, data, errors } = useQuery(GET_AUTHORS_INFO);
@@ -19,12 +20,12 @@ function Authors() {
       {data.authors.map((author,index) => (
         <React.Fragment key={author.id}>
           <Grid item xs={12} padding={2}>
-            <a href={`/authors/${author.slug}`} style={{ display: "flex", alignItems:"center", textDecoration:"none" }}>
+            <Link to={`/authors/${author.slug}`} style={{ display: "flex", alignItems:"center", textDecoration:"none" }}>
               <Avatar src={author.avatar.url} alt={author.slug} sx={{marginLeft:2 }} />
               <Typography component="p" variant="p">
                   {author.name}
               </Typography>
-            </a>
+            </Link>
           </Grid>
           {
             data.authors && index !== data.authors.length - 1 && (

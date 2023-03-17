@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { ThemeProvider } from '@mui/material';
+import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import theme from './mui/theme';
 
@@ -17,8 +18,10 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={client}>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
   </ApolloProvider>
 );

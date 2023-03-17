@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function CardEL({ title, slug, coverPhoto, author }) {
   return (
@@ -35,7 +36,9 @@ function CardEL({ title, slug, coverPhoto, author }) {
       </CardContent>
       <Divider variant="middle" sx={{margin: "10px"}} />
       <CardActions>
-        <Button variant="outlined" size="small" sx={{width:"100%", borderRadius:3 }} >مطالعه مقاله</Button>
+        <Link to={`blogs/${slug}`} style={{width:"100%", textDecoration: "none"}}>
+          <Button variant="outlined" size="small" sx={{width:"100%", borderRadius:3 }} >مطالعه مقاله</Button>
+        </Link>
       </CardActions>
     </Card>
   );
