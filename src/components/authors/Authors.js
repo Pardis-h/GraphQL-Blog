@@ -10,15 +10,15 @@ function Authors() {
 
   if (errors) return <h2>Error..</h2>;
 
-  console.log(data);
+  // console.log(data);
   return (
     <Grid
       container
       sx={{ borderRadius: 4, boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
     >
       {data.authors.map((author,index) => (
-        <React.Fragment>
-          <Grid item key={author.id} xs={12} padding={2}>
+        <React.Fragment key={author.id}>
+          <Grid item xs={12} padding={2}>
             <a href={`/authors/${author.slug}`} style={{ display: "flex", alignItems:"center", textDecoration:"none" }}>
               <Avatar src={author.avatar.url} alt={author.slug} sx={{marginLeft:2 }} />
               <Typography component="p" variant="p">
@@ -27,7 +27,7 @@ function Authors() {
             </a>
           </Grid>
           {
-            index !== data.authors.length - 1 && (
+            data.authors && index !== data.authors.length - 1 && (
               <Grid item xs={12}> 
                 <Divider variant="middle" />
               </Grid>

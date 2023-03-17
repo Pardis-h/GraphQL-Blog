@@ -12,7 +12,6 @@ function Footer() {
         padding="10px"
         textAlign="center"
         mt={10}
-        fontFamily="YekanBakh"
       >
         پروژه وبلاگ با GraphQL | پردیس حقدوست
       </Typography>
