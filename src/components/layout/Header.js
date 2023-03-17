@@ -8,7 +8,7 @@ function Header() {
         <Container maxWidth="lg">
           <Toolbar>
             <Typography component="h1" variant="h5" fontWeight="700" flex={1}>
-              وبلاگ پردیس
+              وبلاگ من 
             </Typography>
             <BookIcon />
           </Toolbar>
