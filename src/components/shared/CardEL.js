@@ -39,7 +39,7 @@ function CardEL({ title, slug, coverPhoto, author }) {
       </CardContent>
       <Divider variant="middle" sx={{margin: "10px"}} />
       <CardActions>
-        <Link to={`blogs/${slug}`} style={{width:"100%", textDecoration: "none"}}>
+        <Link to={`/blogs/${slug}`} style={{width:"100%", textDecoration: "none"}}>
           <Button variant="outlined" size="small" sx={{width:"100%", borderRadius:3 }} >مطالعه مقاله</Button>
         </Link>
       </CardActions>
