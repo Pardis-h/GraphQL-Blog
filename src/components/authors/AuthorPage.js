@@ -2,26 +2,30 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import sanitizeHtml from "sanitize-html";
 import { GET_AUTHOR_INFO } from "../../graphql/queries";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Avatar, Container, Grid, Typography } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CardEL from "../shared/CardEL";
+import Loader from "../shared/Loader";
 
 function AuthorPage() {
   const { slug } = useParams();
-  // console.log(slug);
+  const navigate = useNavigate();
 
   const { loading, data, errors } = useQuery(GET_AUTHOR_INFO, {
     variables: { slug },
   });
-  //   console.log(data);
-  //   const { author } = data;
-  if (loading) return <h1>Loading...</h1>;
+
+  if (loading) return <Loader customHeight={"calc(100vh - 190px)"}/>;
 
   if (errors) return <h1>Error...</h1>;
 
   return (
-    <Container maxWidth="lg">
-      <Grid container mt={4}>
+    <Container maxWidth="lg" >
+      <Grid container mt={8} paddingX={3}>
+        <Grid item display="flex" flex={1} justifyContent="end">
+          <ArrowBackIcon onClick={() => navigate(-1)}/>
+        </Grid>
         <Grid
           item
           xs={12}

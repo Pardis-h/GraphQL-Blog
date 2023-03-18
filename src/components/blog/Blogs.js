@@ -3,13 +3,13 @@ import { Grid } from "@mui/material";
 import { useQuery } from '@apollo/client';
 import { GET_BLOGS_INFO } from '../../graphql/queries';
 import CardEL from '../shared/CardEL';
+import Loader from '../shared/Loader';
 
 function Blogs() {
 
     const {loading, data, error} = useQuery(GET_BLOGS_INFO);
-    // console.log(data)
 
-    if(loading) return <h1>Loading...</h1>
+    if(loading) return <Loader customHeight={"calc(100vh - 320px)"} />
 
     if(error) return <h1>Error..</h1>
 

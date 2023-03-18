@@ -3,15 +3,15 @@ import { Avatar, Divider, Grid, Typography } from "@mui/material";
 import { useQuery } from "@apollo/client";
 import { GET_AUTHORS_INFO } from "../../graphql/queries";
 import { Link } from "react-router-dom";
+import Loader from "../shared/Loader";
 
 function Authors() {
   const { loading, data, errors } = useQuery(GET_AUTHORS_INFO);
 
-  if (loading) return <h2>Loading..</h2>;
+  if (loading) return <Loader customHeight={"calc(100vh - 320px)"}/>;
 
   if (errors) return <h2>Error..</h2>;
 
-  // console.log(data);
   return (
     <Grid
       container
