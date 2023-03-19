@@ -6,6 +6,7 @@ import { GET_BLOG_INFO } from "../../graphql/queries";
 import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Loader from "../shared/Loader";
+import CommentForm from "../comment/CommentForm";
 
 function BlogPage() {
   const { slug } = useParams();
@@ -40,7 +41,7 @@ function BlogPage() {
           >
             {data.post.title}
           </Typography>
-          <ArrowBackIcon onClick={() => navigate(-1)} />
+          <ArrowBackIcon onClick={() => navigate(-1)} sx={{cursor: "pointer"}} />
         </Grid>
         <Grid item xs={12} mt={5}>
           <img
@@ -69,6 +70,9 @@ function BlogPage() {
         </Grid>
         <Grid item xs={12} mt={4}>
             <div dangerouslySetInnerHTML={{__html: sanitizeHtml(data.post.content.html)}}></div>
+        </Grid>
+        <Grid item xs={12} mt={4}>
+          <CommentForm slug={slug}/>
         </Grid>
       </Grid>
     </Container>

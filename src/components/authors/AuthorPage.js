@@ -24,7 +24,7 @@ function AuthorPage() {
     <Container maxWidth="lg" >
       <Grid container mt={8} paddingX={3}>
         <Grid item display="flex" flex={1} justifyContent="end">
-          <ArrowBackIcon onClick={() => navigate(-1)}/>
+          <ArrowBackIcon onClick={() => navigate(-1)} sx={{cursor: "pointer"}}/>
         </Grid>
         <Grid
           item
