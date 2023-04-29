@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import AuthorPage from './components/authors/AuthorPage';
 import BlogPage from './components/blog/BlogPage';
 import HomePage from './components/home/HomePage';
-import Layout from './components/layout/Index';
+import Layout from './components/layout';
 import ScrollToTop from './components/shared/ScrollToTop';
 
 function App() {
